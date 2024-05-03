@@ -24,6 +24,7 @@ import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { buildConfig } from 'payload/config'
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
+import Component from '@/components/Component'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -94,6 +95,9 @@ export default buildConfig({
       email: 'dev@payloadcms.com',
       password: 'test',
       prefillOnly: true,
+    },
+    components: {
+      afterLogin: [Component],
     },
   },
   async onInit(payload) {
