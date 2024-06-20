@@ -59,6 +59,7 @@ export interface Page {
     };
     [k: string]: unknown;
   } | null;
+  someField?: string[] | null;
   updatedAt: string;
   createdAt: string;
 }

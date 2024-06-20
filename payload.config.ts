@@ -21,9 +21,10 @@ import {
 } from '@payloadcms/richtext-lexical'
 //import { slateEditor } from '@payloadcms/richtext-slate'
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
-import { buildConfig } from 'payload'
+import { buildConfig } from 'payload/config'
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
+import SelectSomething from '@/components/SelectSomething'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -54,6 +55,17 @@ export default buildConfig({
         {
           name: 'content',
           type: 'richText',
+        },
+        {
+          name: 'someField',
+          label: 'Some Field',
+          type: 'text',
+          hasMany: true,
+          admin: {
+            components: {
+              Field: SelectSomething,
+            },
+          },
         },
       ],
     },
