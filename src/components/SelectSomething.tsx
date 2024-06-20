@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useField } from '@payloadcms/ui/forms/useField'
-import { SelectInput } from '@payloadcms/ui/fields/Select'
+import { useField } from '@payloadcms/ui'
+import { SelectField } from '@payloadcms/ui'
 
 function SelectSomething({ path }: { path: string }) {
   const { value, setValue } = useField<string>({ path })
@@ -34,7 +34,7 @@ function SelectSomething({ path }: { path: string }) {
   return (
     <div>
       <label className="field-label">Choose something</label>
-      <SelectInput
+      <SelectField
         path={path}
         name={path}
         options={options}
